@@ -49,8 +49,7 @@ public class DrawerAdapter extends BaseAdapter {
 				convertView = mInflater.inflate(R.layout.list_view_item_navigation_drawer_1, parent, false);
 
 			holder = new ViewHolder();
-			holder.icon = (TextView) convertView.findViewById(R.id.icon); // holder.icon object is null if mIsFirstType is set to false
-			holder.title = (TextView) convertView.findViewById(R.id.title);
+
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -59,7 +58,7 @@ public class DrawerAdapter extends BaseAdapter {
 		DrawerItem item = mDrawerItems.get(position);
 
 
-		holder.title.setText(item.getTitle());
+
 		
 		return convertView;
 	}
