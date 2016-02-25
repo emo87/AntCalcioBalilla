@@ -12,7 +12,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +21,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.it.antares.antarescalciobalilla.adapter.DrawerAdapter;
+import com.it.antares.antarescalciobalilla.fragment.PrimoFragment;
 import com.it.antares.antarescalciobalilla.model.DrawerItem;
 
 
@@ -101,10 +101,10 @@ public class MainActivity extends ActionBarActivity {
 
     private void prepareNavigationDrawerItems() {
         mDrawerItems = new ArrayList<>();
-     /*   mDrawerItems.add(new DrawerItem(R.string.drawer_icon_list_views,
+        mDrawerItems.add(new DrawerItem(R.string.drawer_icon_list_views,
                 R.string.drawer_title_list_views,
-                DrawerItem.DRAWER_ITEM_TAG_LIST_VIEWS));
-*/
+                DrawerItem.PRIMO_FRAGMENT));
+
     }
 
     @Override
@@ -147,11 +147,11 @@ public class MainActivity extends ActionBarActivity {
 
     private Fragment getFragmentByDrawerTag(int drawerTag) {
         Fragment fragment;
-     /*   if (drawerTag == DrawerItem.DRAWER_ITEM_TAG_SPLASH_SCREENS) {
-            fragment = SplashScreensFragment.newInstance();
-            mShouldFinish = false;
-            return fragment;
-       */
+       if (drawerTag == DrawerItem.PRIMO_FRAGMENT) {
+           fragment = PrimoFragment.newInstance(drawerTag);
+           mShouldFinish = false;
+           return fragment;
+       }
         return null;
     }
 

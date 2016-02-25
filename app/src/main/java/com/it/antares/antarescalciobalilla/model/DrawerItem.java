@@ -3,6 +3,7 @@ package com.it.antares.antarescalciobalilla.model;
 public class DrawerItem {
 	/* Commented tags are expected in future updates.
 	 */
+	public static final int PRIMO_FRAGMENT = 1;
 
 	
 	public DrawerItem(int icon, int title, int tag) {
