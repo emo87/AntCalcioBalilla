@@ -44,9 +44,9 @@ public class DrawerAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		final ViewHolder holder;
-		if (convertView == null) {
-
-				convertView = mInflater.inflate(R.layout.list_view_item_navigation_drawer_1, parent, false);
+		if (convertView == null)
+		{
+		//	convertView = mInflater.inflate(R.layout.list_view_item_navigation_drawer_1, parent, false);
 
 			holder = new ViewHolder();
 
