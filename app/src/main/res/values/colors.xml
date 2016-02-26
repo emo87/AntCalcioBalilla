@@ -33,8 +33,8 @@
     <color name="main_color_grey_700">@color/material_grey_700</color>
     <color name="main_color_grey_800">@color/material_grey_800</color>
     <color name="main_color_grey_900">@color/material_grey_900</color>
-	
-    
+
+    <color name="left_color_700_20_percent">#5bbc6b</color>
     <!-- PLEASE NOTE: Since adding transparency to already
     defined colors is not supported through xml, we have
     to add them manually. This means: we have used purple

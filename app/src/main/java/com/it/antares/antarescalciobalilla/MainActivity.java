@@ -65,10 +65,8 @@ public class MainActivity extends Activity {
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
-
             actionBar.setDisplayShowTitleEnabled(true);
             actionBar.setLogo(android.R.color.transparent);
-            // actionBar.setBackgroundDrawable(getResources().getDrawable((R.drawable.actionbar)));
 
         }
     }
@@ -147,7 +145,7 @@ public class MainActivity extends Activity {
                 R.string.drawer_close /* "close drawer" description for accessibility */
         ) {
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle("Invia Formazione Fantacalcio");
+                getActionBar().setTitle(R.string.app_name);
                 invalidateOptionsMenu(); // creates call to
                 // onPrepareOptionsMenu()
             }
