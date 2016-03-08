@@ -26,7 +26,7 @@ public class SquadreFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_squadre, container, false);
         ListView lvSquadre = (ListView)rootView.findViewById(R.id.lvSquadre);
         ArrayList<String> listaTeam=new ArrayList<String>();
-     listaTeam.add("aaaa");listaTeam.add("bbbb");
+       listaTeam.add("aaaa");listaTeam.add("bbbb");
         lvSquadre.setAdapter(new SquadreAdapter(getActivity(),R.layout.list_item_squadre,listaTeam));
         return rootView;
     }

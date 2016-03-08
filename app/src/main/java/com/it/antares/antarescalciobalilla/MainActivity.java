@@ -170,7 +170,7 @@ public class MainActivity extends FragmentActivity {
 
             {
 
-
+     mDrawerLayout.closeDrawer(mDrawerList);
                 if (position == 0) {
                     Fragment squadreFragment = SquadreFragment.newInstance(0);
                     FragmentManager fragmentManager = getSupportFragmentManager();
