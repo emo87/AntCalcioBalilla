@@ -6,8 +6,12 @@ import android.app.Activity;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -18,15 +22,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-
 import com.it.antares.antarescalciobalilla.adapter.SettingsItemAdapter;
 import com.it.antares.antarescalciobalilla.database.DbHelper;
+import com.it.antares.antarescalciobalilla.fragment.SquadreFragment;
+import com.parse.Parse;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
     private ActionBarDrawerToggle mDrawerToggle;
     ViewPager mViewPager;
@@ -57,12 +62,16 @@ public class MainActivity extends Activity {
 
         SetDrawerLayout();
 
+        // [Optional] Power your app with Local Datastore. For more info, go to
+        // https://parse.com/docs/android/guide#local-datastore
+        //Parse.enableLocalDatastore(this);
+
+        Parse.initialize(this);
     }
-    private void SetActionBar()
-    {
+
+    private void SetActionBar() {
         ActionBar actionBar = getActionBar();
-        if (actionBar != null)
-        {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayShowTitleEnabled(true);
@@ -80,11 +89,9 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (mDrawerToggle.onOptionsItemSelected(item))
-        {
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
 
             invalidateOptionsMenu();
             return true;
@@ -130,7 +137,7 @@ public class MainActivity extends Activity {
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
         ArrayList<String> menuString = new ArrayList<String>();
-        menuString.add("OPZIONE 1");
+        menuString.add("Squadre");
         menuString.add("OPZIONE 2");
         menuString.add("OPZIONE 3");
 
@@ -157,20 +164,20 @@ public class MainActivity extends Activity {
             }
         };
 
-        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        mDrawerList.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        //
-                        break;
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 
+            {
+
+
+                if (position == 0) {
+                    Fragment squadreFragment = SquadreFragment.newInstance(0);
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.content_frame,squadreFragment).commit();
+                    //se position è 0 apriamo il fragment delle squadre
                 }
-
             }
-
-
         });
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
@@ -184,8 +191,6 @@ public class MainActivity extends Activity {
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerLayout.setClickable(true);
-
-
 
 
     }

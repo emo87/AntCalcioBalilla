@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:padding="7dp"
-        android:text="Large Text"
+        android:text="Large1 Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#fff" />
 

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-
+import com.it.antares.antarescalciobalilla.R;
 
 
 public class SettingsItemAdapter extends ArrayAdapter<String>
@@ -38,6 +38,7 @@ public class SettingsItemAdapter extends ArrayAdapter<String>
     {
         return models;
     }
+
     @Override
     public View getView(int pos, View cnvtView, ViewGroup prnt)
     {
@@ -54,11 +55,8 @@ public class SettingsItemAdapter extends ArrayAdapter<String>
         // ImageView iv = (ImageView)
         // rowView.findViewById(R.id.img_type_settings);
         // iv.setImageResource(android.R.drawable.ic_dialog_info);
-      //  TextView tv = (TextView) rowView.findViewById(R.id.description);
-
-
-
-      //  tv.setText(l);
+         TextView tv = (TextView) rowView.findViewById(R.id.description);
+         tv.setText(l);
         return rowView;
 
     }
@@ -66,13 +64,14 @@ public class SettingsItemAdapter extends ArrayAdapter<String>
     @Override
     public int getCount()
     {
+
         return models.size();
     }
 
     @Override
     public String getItem(int arg0)
     {
-        ////
+
         return models.get(arg0);
     }
     @Override
