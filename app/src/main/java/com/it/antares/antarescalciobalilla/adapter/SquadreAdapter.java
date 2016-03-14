@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.it.antares.antarescalciobalilla.R;
+import com.it.antares.antarescalciobalilla.model.Team;
 
 
 import java.util.List;
@@ -15,13 +16,13 @@ import java.util.List;
 /**
  * Created by Fabio on 08/03/2016.
  */
-public class SquadreAdapter extends ArrayAdapter<String> {
+public class SquadreAdapter extends ArrayAdapter<Team> {
 
     private int mResource;
     private LayoutInflater mInflater;
-    private List<String> mObjects;
+    private List<Team> mObjects;
 
-    public SquadreAdapter(Context context, int resource, List<String> objects) {
+    public SquadreAdapter(Context context, int resource, List<Team> objects) {
 
         super(context, resource, objects);
         mResource = resource;
@@ -31,7 +32,7 @@ public class SquadreAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int pos, View cnvtView, ViewGroup prnt) {
-        String str = mObjects.get(pos);
+        String str = mObjects.get(pos).getName();
         cnvtView= mInflater.inflate(mResource,null);
         TextView tv = (TextView) cnvtView.findViewById(R.id.textView2);
         tv.setText(str);

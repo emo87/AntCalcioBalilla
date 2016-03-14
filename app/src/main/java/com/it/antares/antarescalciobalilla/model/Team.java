@@ -10,9 +10,13 @@ import com.parse.ParseObject;
 public class Team extends ParseObject {
     public Team()
     {
-        create("Team");
+        super();
     }
 
+    public Team(String name){
+        super();
+        setName(name);
+    }
 
     public String getObjectId(){
         return getString("objectId");

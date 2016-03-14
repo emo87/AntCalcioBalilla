@@ -25,7 +25,9 @@ import android.widget.ListView;
 import com.it.antares.antarescalciobalilla.adapter.SettingsItemAdapter;
 import com.it.antares.antarescalciobalilla.database.DbHelper;
 import com.it.antares.antarescalciobalilla.fragment.SquadreFragment;
+import com.it.antares.antarescalciobalilla.model.Team;
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,6 +63,8 @@ public class MainActivity extends FragmentActivity {
         //DRAWERLAYOUT
 
         SetDrawerLayout();
+
+        ParseObject.registerSubclass(Team.class);
 
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/android/guide#local-datastore

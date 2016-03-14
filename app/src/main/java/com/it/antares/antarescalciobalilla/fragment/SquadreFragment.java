@@ -11,8 +11,12 @@ import android.widget.ListView;
 import com.it.antares.antarescalciobalilla.R;
 import com.it.antares.antarescalciobalilla.adapter.SquadreAdapter;
 import com.it.antares.antarescalciobalilla.model.Team;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by emiliomarino on 25/02/16.
@@ -24,10 +28,22 @@ public class SquadreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View rootView = inflater.inflate(R.layout.fragment_squadre, container, false);
-        ListView lvSquadre = (ListView)rootView.findViewById(R.id.lvSquadre);
-        ArrayList<String> listaTeam=new ArrayList<String>();
-       listaTeam.add("aaaa");listaTeam.add("bbbb");
-        lvSquadre.setAdapter(new SquadreAdapter(getActivity(),R.layout.list_item_squadre,listaTeam));
+        final ListView lvSquadre = (ListView)rootView.findViewById(R.id.lvSquadre);
+        //ArrayList<String> listaTeam=new ArrayList<String>();
+        //listaTeam.add("aaaa");listaTeam.add("bbbb");
+        ParseQuery<Team> query = ParseQuery.getQuery(Team.class);
+        query.findInBackground(new FindCallback<Team>() {
+
+            @Override
+            public void done(List<Team> teams, ParseException error) {
+                if (teams != null) {
+                    //mAdapter.clear();
+                    //mAdapter.addAll(tasks);
+                    lvSquadre.setAdapter(new SquadreAdapter(getActivity(), R.layout.list_item_squadre, teams));
+                }
+            }
+        });
+        //lvSquadre.setAdapter(new SquadreAdapter(getActivity(),R.layout.list_item_squadre,listaTeam));
         return rootView;
     }
 
