@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cpb_red" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:text="FOOSBALL"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+
+        android:layout_centerVertical="true">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/main_color_grey_300"
+            android:textColorHighlight="@color/white"
+            android:hint="@string/username"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/edittext_white"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/main_color_grey_300"
+            android:textColorHighlight="@color/white"
+            android:hint="@string/password"
+            android:textColor="@color/white"
+            android:layout_below="@id/editText"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:inputType="textPassword"
+            android:background="@drawable/edittext_white"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/angry_btn"
+            android:text="Entra"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_blue_selector"
+            android:shadowColor="#2a65b0"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:layout_below="@+id/editText2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="32dp" />
+
+
+    </RelativeLayout>
+
+    <MediaController
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mediaController"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

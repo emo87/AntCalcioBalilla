@@ -3,6 +3,7 @@ package com.it.antares.antarescalciobalilla;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +30,7 @@ import com.it.antares.antarescalciobalilla.fragment.SquadreFragment;
 import com.it.antares.antarescalciobalilla.model.Team;
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,8 +61,8 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         //INIZIALIZZAZIONE DATABASE
-        SetDatabase("biliardino.db");
-        sqlDb = mDb.getReadableDatabase();
+     //   SetDatabase("biliardino.db");
+       // sqlDb = mDb.getReadableDatabase();
         //DRAWERLAYOUT
 
         SetDrawerLayout();
@@ -71,6 +74,18 @@ public class MainActivity extends FragmentActivity {
         //Parse.enableLocalDatastore(this);
 
         Parse.initialize(this);
+        //CONTROLLA SE L UTENTE E' LOGGATO
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null)
+        {
+            // SCARICA DATI ECC ECC
+        } else
+        {
+            Intent intent=new Intent(this,LoginActivity.class);
+            startActivity(intent);
+            Log.d("--", "--startActivity(intent);");
+        }
+
     }
 
     private void SetActionBar() {

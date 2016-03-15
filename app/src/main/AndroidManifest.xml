@@ -3,6 +3,7 @@
     package="com.it.antares.antarescalciobalilla" >
 
     <application
+        android:largeHeap="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,6 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+           ></activity>
         <meta-data
             android:name="com.parse.APPLICATION_ID"
             android:value="xDpvxwhXo88YZxdD7GwRu3Kd70I6RSsFAJVRyfgg" />
