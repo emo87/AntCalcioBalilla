@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/relativeLayout"
         android:layout_centerHorizontal="true"
-        android:text="FOOSBALL"
+        android:text="FOOSBAL"
         android:textColor="@color/white"
         android:textSize="40dp"
         android:textStyle="bold" />
