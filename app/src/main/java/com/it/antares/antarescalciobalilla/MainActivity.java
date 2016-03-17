@@ -26,6 +26,7 @@ import android.widget.ListView;
 
 import com.it.antares.antarescalciobalilla.adapter.SettingsItemAdapter;
 import com.it.antares.antarescalciobalilla.database.DbHelper;
+import com.it.antares.antarescalciobalilla.fragment.PrimoFragment;
 import com.it.antares.antarescalciobalilla.fragment.SquadreFragment;
 import com.it.antares.antarescalciobalilla.model.Team;
 import com.parse.Parse;
@@ -61,8 +62,8 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         //INIZIALIZZAZIONE DATABASE
-     //   SetDatabase("biliardino.db");
-       // sqlDb = mDb.getReadableDatabase();
+        //   SetDatabase("biliardino.db");
+        // sqlDb = mDb.getReadableDatabase();
         //DRAWERLAYOUT
 
         SetDrawerLayout();
@@ -73,17 +74,27 @@ public class MainActivity extends FragmentActivity {
         // https://parse.com/docs/android/guide#local-datastore
         //Parse.enableLocalDatastore(this);
 
-        Parse.initialize(this);
+
+        try {
+            Parse.initialize(this);
+        } catch (Exception e) {
+
+        }
         //CONTROLLA SE L UTENTE E' LOGGATO
         ParseUser currentUser = ParseUser.getCurrentUser();
-        if (currentUser != null)
-        {
-            // SCARICA DATI ECC ECC
-        } else
-        {
-            Intent intent=new Intent(this,LoginActivity.class);
+        if (currentUser != null) {
+          Fragment f= PrimoFragment.newInstance(0);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, f).commit();// SCARICA DATI ECC ECC
+        } else {
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            finish();
+
             startActivity(intent);
-            Log.d("--", "--startActivity(intent);");
+            //  overridePendingTransition(android.R.anim.cycle_interpolator,android.R.anim.anticipate_interpolator);
+            //    R.anim.fade_in, R.anim.fade_out);
+
         }
 
     }
@@ -189,11 +200,11 @@ public class MainActivity extends FragmentActivity {
 
             {
 
-     mDrawerLayout.closeDrawer(mDrawerList);
+                mDrawerLayout.closeDrawer(mDrawerList);
                 if (position == 0) {
                     Fragment squadreFragment = SquadreFragment.newInstance(0);
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.content_frame,squadreFragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.content_frame, squadreFragment).commit();
                     //se position è 0 apriamo il fragment delle squadre
                 }
             }

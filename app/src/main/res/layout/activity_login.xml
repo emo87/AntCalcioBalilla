@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/relativeLayout"
         android:layout_centerHorizontal="true"
-        android:text="FOOSBAL"
+        android:text="FOOSBALL"
         android:textColor="@color/white"
         android:textSize="40dp"
         android:textStyle="bold" />
@@ -33,7 +33,7 @@
         android:layout_centerVertical="true">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/usernameET"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/main_color_grey_300"
@@ -46,14 +46,14 @@
             android:layout_centerHorizontal="true" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/passwordET"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/main_color_grey_300"
             android:textColorHighlight="@color/white"
             android:hint="@string/password"
             android:textColor="@color/white"
-            android:layout_below="@id/editText"
+            android:layout_below="@id/usernameET"
             android:layout_marginTop="20dp"
             android:padding="10dp"
             android:inputType="textPassword"
@@ -61,7 +61,7 @@
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:id="@+id/angry_btn"
+            android:id="@+id/entra"
             android:text="Entra"
             android:textColor="#FFFFFF"
             android:textSize="26sp"
@@ -72,7 +72,7 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            android:layout_below="@+id/editText2"
+            android:layout_below="@+id/passwordET"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="32dp" />
